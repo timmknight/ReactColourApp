@@ -98,7 +98,6 @@ input.form-control.add-title.top-input {
 .index-palette-container {
   padding-bottom: 50px;
   width: 100%;
-  /*max-width: 150px;*/
   margin: 0 auto;
   float: left;
 }
@@ -107,12 +106,8 @@ input.form-control.add-title.top-input {
   text-align: center;
 }
 
-.color-svg {
-  /*width: 50%;*/
-}
-
 .color-svg .hide {
-  opacity: 0;
+  opacity: 1;
   moz-transition: opacity .4s ease-in-out;
   -webkit-transition: opacity .4s ease-in-out;
   -o-transition: opacity .4s ease-in-out;
@@ -319,8 +314,11 @@ input[type=range]:focus::-webkit-slider-runnable-track {
 /* Media Qs */
 @media screen and (min-width: 500px) {
   .index-palette-container {
-        width: 50%;
-    }
+       width: 50%;
+  }
+  .color-svg .hide {
+    opacity: 0;
+  }
 }
 
 @media screen and (min-width: 680px) {
