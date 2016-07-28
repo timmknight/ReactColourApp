@@ -106,7 +106,7 @@ class CreatePalette extends Component {
     let color4 = rgbToHex(+this.state.color4.red, +this.state.color4.blue, +this.state.color4.green);
     const regex = /^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$/i
     if (color1.match(regex) && color2.match(regex) && color3.match(regex) && color4.match(regex) && this.state.title !== '') {
-      $.post('https://limitless-eyrie-88050.herokuapp.com/api/', {title: this.state.title, color1: color1, color2: color2, color3: color3,  color4: color4 });
+      axios.post(`https://limitless-eyrie-88050.herokuapp.com/api/`, {title: this.state.title, color1: color1, color2: color2, color3: color3,  color4: color4 })
     }
   }
 

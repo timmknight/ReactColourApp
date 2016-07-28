@@ -6,6 +6,8 @@ import ColorIndex from './components/color_index'
 import CreatePalette from './components/create_palette';
 import About from './components/about';
 
+
+
 export default (
   <Route path='/' component={App} >
     <IndexRoute component={ColorIndex} />

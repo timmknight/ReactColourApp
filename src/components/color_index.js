@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import ColorPalette from './color_palette';
 import Like from './like_color';
 import axios from 'axios';
-import Loader from './loader'
+import Loader from './loader';
 
 class ColorIndex extends Component {
 
@@ -17,17 +17,15 @@ class ColorIndex extends Component {
   }
 
   loadData() {
-    $.ajax({
-        url: 'https://limitless-eyrie-88050.herokuapp.com/api/',
-        success: (data) => {
-          this.setState({
-            palettes: data,
-            loading: false
-          });
-        },
-        error: (xhr, status, err) => {
-          console.error(status, err.toString());
-        }
+    axios.get('https://limitless-eyrie-88050.herokuapp.com/api/')
+      .then((res) => {
+        this.setState({
+          palettes: res.data,
+          loading: false
+        });
+      })
+      .catch((error) => {
+        console.log(error);
       });
   }
 
@@ -35,6 +33,16 @@ class ColorIndex extends Component {
     this.loadData();
   }
 
+  componentWillUnmount () {
+    this.setState({
+      loading: true
+    });
+  }
+
+  componentWillUpdate () {
+    this.loadData();
+  }
+  
   render() {
       var colorPalletteItems = this.state.palettes.map((palette) => {
         return (
